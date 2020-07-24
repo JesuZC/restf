@@ -17,14 +17,14 @@ class Clientes extends RestController{
 	}
 	public function cliente_post(){
 		$data = array(
-			'nombre' => "Juan Antonio Perez",
+			'nombre' => "Julian Alambriz Perez",
 			'activo' => 1,
-			'correo' => "juan_felipe1@gmail.com",
-			'zip' => "120zp",
+			'correo' => "juAl@gmail.com",
+			'zip' => "12a0zp",
 			'telefono1' => "7621201234",
 			'telefono2' => "7772345678",
-			'pais' => "colombia",
-			'direccion' => "calle de la lima, col. playa alegre #45 ",
+			'pais' => "españa",
+			'direccion' => "coño tio, col. playa alegre #45 "
 		);
 		$resp = $this->Clientes_model->insert_cliente($data);
 		if($resp['error']==TRUE){

@@ -12,7 +12,11 @@ function capitalizar_todo($data_cruda){
 	$data_lista= $data_cruda;
 	foreach ($data_cruda as $nombre_campo => $valor_campo){
 		if(is_string($valor_campo)){
-			$data_lista[$nombre_campo]=strtoupper($valor_campo);
+			if($nombre_campo=='zip'){
+				$data_lista[$nombre_campo]=$valor_campo;
+			}else{
+				$data_lista[$nombre_campo]=strtoupper($valor_campo);
+			}
 		}else{
 			$data_lista[$nombre_campo]=$valor_campo;
 		}
