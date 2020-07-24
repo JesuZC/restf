@@ -31,21 +31,23 @@ class Clientes_model extends CI_model{
 		return $this;
 	}
 	public function insert_cliente($data){
-		$this->nombre=$data['nombre'];
+		$this->load->helper('utilidades');
+		$dataG = capitalizar_todo($data);
+		$this->nombre=$dataG['nombre'];
 		$this->id="";
-		$this->activo=$data['activo'];
-		$this->correo=$data['correo'];
-		$this->zip=$data['zip'];
-		$this->telefono1=$data['telefono1'];
-		$this->telefono2=$data['telefono2'];
-		$this->pais=$data['pais'];
-		$this->direccion=$data['direccion']; 
+		$this->activo=$dataG['activo'];
+		$this->correo=$dataG['correo'];
+		$this->zip=$dataG['zip'];
+		$this->telefono1=$dataG['telefono1'];
+		$this->telefono2=$dataG['telefono2'];
+		$this->pais=$dataG['pais'];
+		$this->direccion=$dataG['direccion']; 
 		$this->db->insert('clientes',$this);
         if ($this->db->affected_rows() > 0) {
             $respuesta = array(
                 'error' => FALSE,
                 'mensaje' => "se ha guardado Correctamente",
-                'data' => $data
+                'data' => $dataG
             );
         } else {
             $respuesta = array(

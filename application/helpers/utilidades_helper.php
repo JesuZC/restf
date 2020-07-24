@@ -8,6 +8,17 @@ function capitalizar($data_cruda,$campos_capitalizar){
 	}
 	return $data_lista;
 }
+function capitalizar_todo($data_cruda){
+	$data_lista= $data_cruda;
+	foreach ($data_cruda as $nombre_campo => $valor_campo){
+		if(is_string($valor_campo)){
+			$data_lista[$nombre_campo]=strtoupper($valor_campo);
+		}else{
+			$data_lista[$nombre_campo]=$valor_campo;
+		}
+	}
+	return $data_lista;
+}
 function obtener_mes($mes){
 	if( !is_numeric($mes) ){
     		$respuesta = array('error'=>true, 'mensaje'=>'El mes tine que ser un numero');
