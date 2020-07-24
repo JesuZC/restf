@@ -15,4 +15,23 @@ class Clientes extends RestController{
 	public function clientes_get(){
 		echo json_encode($this->Clientes_model->get_clientes());
 	}
+	public function cliente_post(){
+		$data = array(
+			'nombre' => "Juan Antonio Perez",
+			'activo' => 1,
+			'correo' => "juan_felipe1@gmail.com",
+			'zip' => "120zp",
+			'telefono1' => "7621201234",
+			'telefono2' => "7772345678",
+			'pais' => "colombia",
+			'direccion' => "calle de la lima, col. playa alegre #45 ",
+		);
+		$resp = $this->Clientes_model->insert_cliente($data);
+		if($resp['error']==TRUE){
+			$this->response(json_encode($resp), RestController::HTTP_OK);
+			return;
+		}else{
+			$this->response(json_encode($resp), RestController::HTTP_OK);
+		}
+	}
 }

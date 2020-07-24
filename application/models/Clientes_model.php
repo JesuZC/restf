@@ -8,9 +8,14 @@ class Clientes_model extends CI_model{
 	public $correo;
 	public $zip;
 	public $telefono1;
-	public $telefono;
+	public $telefono2;
 	public $pais;
 	public $direccion; 
+	public function __construnct(){
+		parent:: __construnct();
+		$this->load->database();
+		$this->load->library('Form_validation');
+	}
 	public function get_clientes(){
 		$this->load->database();
 		$this->db->select('nombre, id');
@@ -25,9 +30,31 @@ class Clientes_model extends CI_model{
 		$this->correo='aruma.yatzil27@gmail.com';
 		return $this;
 	}
-	public function insert(){
-		return "insertado";
-
+	public function insert_cliente($data){
+		$this->nombre=$data['nombre'];
+		$this->id="";
+		$this->activo=$data['activo'];
+		$this->correo=$data['correo'];
+		$this->zip=$data['zip'];
+		$this->telefono1=$data['telefono1'];
+		$this->telefono2=$data['telefono2'];
+		$this->pais=$data['pais'];
+		$this->direccion=$data['direccion']; 
+		$this->db->insert('clientes',$this);
+        if ($this->db->affected_rows() > 0) {
+            $respuesta = array(
+                'error' => FALSE,
+                'mensaje' => "se ha guardado Correctamente",
+                'data' => $data
+            );
+        } else {
+            $respuesta = array(
+                'error' => TRUE,
+                'mensaje' => "error al guardar",
+                'data' => $data
+            );
+        }
+        return $respuesta;
 	}
 	public function update(){
 		return "actuaizado";
