@@ -10,10 +10,13 @@ class Clientes extends RestController{
     }
 	public function cliente_get(){
 		$cliente_id = $this->uri->segment(3);
-		echo $cliente_id;
+		echo json_encode($this->Clientes_model->get_cliente($cliente_id));
 	}
 	public function clientes_get(){
 		echo json_encode($this->Clientes_model->get_clientes());
+	}
+	public function login_post(){
+		
 	}
 	public function cliente_post(){
 		$data = array(

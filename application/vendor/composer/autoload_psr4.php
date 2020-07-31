@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'chriskacerguis\\RestServer\\' => array($vendorDir . '/chriskacerguis/codeigniter-restserver/src'),
+    'Firebase\\JWT\\' => array($vendorDir . '/firebase/php-jwt/src'),
 );

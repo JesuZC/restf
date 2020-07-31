@@ -11,12 +11,20 @@ class ComposerStaticInitbb039fe7d8ec1862d179bdb68f21a108
         array (
             'chriskacerguis\\RestServer\\' => 26,
         ),
+        'F' => 
+        array (
+            'Firebase\\JWT\\' => 13,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'chriskacerguis\\RestServer\\' => 
         array (
             0 => __DIR__ . '/..' . '/chriskacerguis/codeigniter-restserver/src',
+        ),
+        'Firebase\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
         ),
     );
 

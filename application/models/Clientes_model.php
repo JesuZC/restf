@@ -25,11 +25,17 @@ class Clientes_model extends CI_model{
 		return $consulta->result_array();
 	}
 	public function get_cliente($id){
-		$this->id=1;
-		$this->nombre='Aruma Yatzil';
-		$this->correo='aruma.yatzil27@gmail.com';
-		return $this;
-	}
+		$this->db->select('*');
+		$this->db->from('cLientes');
+		$this->db->where('id', $id );
+		$consulta=$this->db->get();
+		$respuesta = array(
+			'Error'=>FALSE,
+			'mensaje'=>"cliente cargado correctamente",
+			'data' => $consulta->result_array()
+		);
+		return $respuesta;
+	} 
 	public function insert_cliente($data){
 		$this->load->helper('utilidades');
 		$dataG = capitalizar_todo($data);
